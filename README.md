@@ -145,13 +145,43 @@ The project currently uses placeholder images. To add real images:
 
 ## 🚀 Deployment
 
-### Vercel (Recommended)
+This project is optimized for **Vercel** deployment with zero configuration required.
 
-1. Push to GitHub
-2. Import project in Vercel
-3. Deploy with default settings
+### Quick Deploy to Vercel
 
-### Build for Production
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/ncadsxhvs/spc_landingpage)
+
+**Or manually:**
+
+1. **Push to GitHub** (already done ✅)
+   ```bash
+   git push origin main
+   ```
+
+2. **Import to Vercel**
+   - Go to [vercel.com/new](https://vercel.com/new)
+   - Import `ncadsxhvs/spc_landingpage` repository
+   - Click "Deploy" (all settings auto-detected)
+
+3. **Live in 2-3 minutes!** 🎉
+   - Get a free `.vercel.app` domain
+   - Automatic HTTPS/SSL
+   - Global CDN
+   - Auto-deployments on git push
+
+📖 **[Read full deployment guide →](./DEPLOYMENT.md)**
+
+### What's Included
+
+- ✅ `vercel.json` - Optimized configuration with security headers
+- ✅ Automatic Next.js detection
+- ✅ Preview deployments for pull requests
+- ✅ Zero-downtime deployments
+- ✅ Built-in Web Analytics
+
+### Local Production Build
+
+Test production build locally:
 
 ```bash
 npm run build
