@@ -1,6 +1,6 @@
 # Deployment Guide - Vercel
 
-This guide will help you deploy the Premium Flooring Landing Page to Vercel.
+This guide will help you deploy the Livingston Craft Landing Page to Vercel.
 
 ## 🚀 Quick Deploy
 

@@ -3,7 +3,7 @@
 ## 1. Overview
 
 ### 1.1 Product Name
-Premium Flooring Landing Page
+Livingston Craft Landing Page
 
 ### 1.2 Purpose
 A minimalist, Apple-inspired landing page that showcases flooring products with elegant scrolling experiences, stunning visuals, and clear product differentiation.

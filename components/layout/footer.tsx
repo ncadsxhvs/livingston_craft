@@ -1,5 +1,6 @@
 import { Facebook, Instagram, Twitter, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 const footerLinks = {
   products: [
@@ -14,12 +15,7 @@ const footerLinks = {
     { name: "Testimonials", href: "#testimonials" },
     { name: "Blog", href: "#blog" },
   ],
-  support: [
-    { name: "Contact Us", href: "#contact" },
-    { name: "Order Samples", href: "#samples" },
-    { name: "Installation Guide", href: "#installation" },
-    { name: "Care & Maintenance", href: "#care" },
-  ],
+  support: [],
   legal: [
     { name: "Privacy Policy", href: "#privacy" },
     { name: "Terms of Service", href: "#terms" },
@@ -42,7 +38,7 @@ export function Footer() {
         <div className="grid grid-cols-1 gap-8 py-12 md:grid-cols-2 lg:grid-cols-5 lg:py-16">
           {/* Brand Column */}
           <div className="lg:col-span-2">
-            <h3 className="text-2xl font-bold text-white">Premium Flooring</h3>
+            <h3 className="text-2xl font-bold text-white">Livingston Craft</h3>
             <p className="mt-4 text-sm text-stone-400">
               Transform your space with premium flooring that elevates every room.
               Quality materials, expert installation, lifetime support.
@@ -114,18 +110,23 @@ export function Footer() {
           {/* Support */}
           <div>
             <h4 className="text-sm font-semibold text-white">Support</h4>
-            <ul className="mt-4 space-y-2">
-              {footerLinks.support.map((link) => (
-                <li key={link.name}>
-                  <a
-                    href={link.href}
-                    className="text-sm text-stone-400 transition-colors hover:text-white"
-                  >
-                    {link.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
+            <div className="mt-4 space-y-4">
+              <a
+                href="mailto:info@livingstoncraftinc.com"
+                className="block text-sm text-stone-400 transition-colors hover:text-white"
+              >
+                info@livingstoncraftinc.com
+              </a>
+              <div>
+                <Image
+                  src="/images/logo.png"
+                  alt="Livingston Craft"
+                  width={120}
+                  height={60}
+                  className="h-16 w-auto"
+                />
+              </div>
+            </div>
           </div>
         </div>
 
@@ -169,7 +170,7 @@ export function Footer() {
 
             {/* Copyright */}
             <p className="text-sm text-stone-400">
-              © {new Date().getFullYear()} Premium Flooring. All rights reserved.
+              © {new Date().getFullYear()} Livingston Craft. All rights reserved.
             </p>
           </div>
         </div>

@@ -1,4 +1,4 @@
-# Premium Flooring Landing Page
+# Livingston Craft Landing Page
 
 A modern, Apple-inspired landing page for showcasing premium flooring products. Built with Next.js 14, TypeScript, Tailwind CSS, and Framer Motion.
 
