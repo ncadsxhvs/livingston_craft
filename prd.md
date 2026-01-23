@@ -381,3 +381,5 @@ How it works (4 steps):
 **Created:** November 2025  
 **Target Launch:** [TBD]  
 **Design Reference:** https://www.apple.com/iphone/
+
+end
