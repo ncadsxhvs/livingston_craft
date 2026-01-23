@@ -2,7 +2,7 @@
 
 ## Project Information
 
-**Project Name:** Premium Flooring Landing Page
+**Project Name:** Livingston Craft Landing Page
 **Version:** 0.1.0 (Initial Implementation)
 **Status:** Phase 1-3 Complete (MVP Foundation)
 **Last Updated:** November 2025

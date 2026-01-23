@@ -66,7 +66,7 @@ export function FeatureHighlights() {
           className="mb-16 text-center"
         >
           <h2 className="text-4xl font-bold tracking-tight text-stone-900 sm:text-5xl">
-            Why Choose Premium Flooring?
+            Why Choose Livingston Craft?
           </h2>
           <p className="mt-4 text-lg text-stone-600">
             Quality, durability, and style you can trust

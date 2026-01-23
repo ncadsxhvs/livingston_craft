@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Premium Flooring | Transform Your Space",
+  title: "Livingston Craft | Transform Your Space",
   description: "Premium flooring that elevates every room. Discover our collection of hardwood, luxury vinyl, engineered wood, and laminate flooring.",
   keywords: ["flooring", "hardwood", "luxury vinyl", "laminate", "home improvement"],
-  authors: [{ name: "Premium Flooring" }],
+  authors: [{ name: "Livingston Craft" }],
   openGraph: {
-    title: "Premium Flooring | Transform Your Space",
+    title: "Livingston Craft | Transform Your Space",
     description: "Premium flooring that elevates every room",
     type: "website",
   },

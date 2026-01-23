@@ -54,7 +54,7 @@ export function Header() {
           {/* Logo */}
           <div className="flex-shrink-0">
             <a href="/" className="text-2xl font-bold text-primary">
-              Premium Flooring
+              Livingston Craft
             </a>
           </div>
 
