@@ -90,12 +90,19 @@ const config: Config = {
       },
       fontFamily: {
         sans: [
+          "Outfit",
           "system-ui",
           "-apple-system",
           "BlinkMacSystemFont",
           '"Segoe UI"',
-          "Roboto",
           "sans-serif",
+        ],
+        serif: [
+          "'Cormorant Garamond'",
+          "Georgia",
+          "Cambria",
+          "Times New Roman",
+          "serif",
         ],
       },
       borderRadius: {
