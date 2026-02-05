@@ -105,7 +105,7 @@ export function SubscribeModal({ isOpen, onClose }: SubscribeModalProps) {
                   >
                     <CheckCircle className="w-5 h-5 text-emerald-600 flex-shrink-0" />
                     <p className="text-emerald-800">
-                      Welcome! You're subscribed to our newsletter.
+                      Welcome! You&apos;re subscribed to our newsletter.
                     </p>
                   </motion.div>
                 )}

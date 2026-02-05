@@ -131,7 +131,7 @@ export function SampleRequestModal({ isOpen, onClose, productName }: SampleReque
                   >
                     <CheckCircle className="w-5 h-5 text-emerald-600 flex-shrink-0" />
                     <p className="text-emerald-800">
-                      Request submitted successfully! We'll send your samples soon.
+                      Request submitted successfully! We&apos;ll send your samples soon.
                     </p>
                   </motion.div>
                 )}
