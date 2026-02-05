@@ -1,8 +1,10 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import Image from "next/image";
+import { SampleRequestModal } from "@/components/modals/sample-request-modal";
 
 const images = [
   {
@@ -16,6 +18,8 @@ const images = [
 ];
 
 export function PhotoGallery() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const scrollToProducts = () => {
     const productsSection = document.getElementById("products");
     productsSection?.scrollIntoView({ behavior: "smooth" });
@@ -104,8 +108,11 @@ export function PhotoGallery() {
             <div className="absolute inset-0 bg-gradient-to-br from-cream-100 to-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             <span className="relative">Explore Our Collection</span>
           </button>
-          <button className="group relative overflow-hidden rounded-full border-2 border-white/30 bg-white/5 backdrop-blur-sm px-10 py-4 text-base font-medium text-white hover:border-white hover:bg-white/10 transition-all duration-300">
-            <span className="relative">Request a Quote</span>
+          <button
+            onClick={() => setIsModalOpen(true)}
+            className="group relative overflow-hidden rounded-full border-2 border-white/30 bg-white/5 backdrop-blur-sm px-10 py-4 text-base font-medium text-white hover:border-white hover:bg-white/10 transition-all duration-300"
+          >
+            <span className="relative">Get Free Samples</span>
           </button>
         </motion.div>
       </div>
@@ -121,6 +128,9 @@ export function PhotoGallery() {
         <span className="text-xs uppercase tracking-wider font-medium">Discover</span>
         <ChevronDown className="h-6 w-6 group-hover:scale-110 transition-transform" />
       </motion.button>
+
+      {/* Sample Request Modal */}
+      <SampleRequestModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </section>
   );
 }

@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { PhotoGallery } from "@/components/sections/photo-gallery";
@@ -5,9 +8,12 @@ import { ProductShowcase } from "@/components/sections/product-showcase";
 import { FeatureHighlights } from "@/components/sections/feature-highlights";
 import { ComparisonTable } from "@/components/sections/comparison-table";
 import { HowItWorks } from "@/components/sections/how-it-works";
+import { SampleRequestModal } from "@/components/modals/sample-request-modal";
 import { products } from "@/lib/data/products";
 
 export default function Home() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <>
       <Header />
@@ -79,7 +85,10 @@ export default function Home() {
 
             {/* CTAs */}
             <div className="flex flex-col items-center justify-center gap-5 sm:flex-row">
-              <button className="group relative overflow-hidden rounded-full bg-white px-10 py-5 text-base font-semibold text-wood-900 shadow-2xl transition-all duration-300 hover:scale-105 hover:shadow-white/20">
+              <button
+                onClick={() => setIsModalOpen(true)}
+                className="group relative overflow-hidden rounded-full bg-white px-10 py-5 text-base font-semibold text-wood-900 shadow-2xl transition-all duration-300 hover:scale-105 hover:shadow-white/20"
+              >
                 <div className="absolute inset-0 bg-gradient-to-r from-cream-100 to-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <span className="relative flex items-center gap-2">
                   Order Free Samples
@@ -88,7 +97,10 @@ export default function Home() {
                   </svg>
                 </span>
               </button>
-              <button className="group relative overflow-hidden rounded-full border-2 border-white/30 bg-white/5 backdrop-blur-sm px-10 py-5 text-base font-semibold text-white transition-all duration-300 hover:border-white hover:bg-white/10">
+              <button
+                onClick={() => setIsModalOpen(true)}
+                className="group relative overflow-hidden rounded-full border-2 border-white/30 bg-white/5 backdrop-blur-sm px-10 py-5 text-base font-semibold text-white transition-all duration-300 hover:border-white hover:bg-white/10"
+              >
                 <span className="relative">Request a Quote</span>
               </button>
             </div>
@@ -120,6 +132,9 @@ export default function Home() {
         </section>
       </main>
       <Footer />
+
+      {/* Sample Request Modal */}
+      <SampleRequestModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </>
   );
 }
