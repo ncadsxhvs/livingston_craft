@@ -6,6 +6,7 @@ import { useRef } from "react";
 import { Product } from "@/types/product";
 import { ColorSwatch } from "@/components/common/color-swatch";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { SampleRequestModal } from "@/components/modals/sample-request-modal";
 
 interface ProductShowcaseProps {
   product: Product;
@@ -14,6 +15,7 @@ interface ProductShowcaseProps {
 
 export function ProductShowcase({ product, index }: ProductShowcaseProps) {
   const [activeColorId, setActiveColorId] = useState(product.colors[0].id);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
@@ -189,7 +191,10 @@ export function ProductShowcase({ product, index }: ProductShowcaseProps) {
                 transition={{ delay: 1.1, duration: 0.8 }}
                 className="flex flex-wrap gap-4 pt-6"
               >
-                <button className="group relative overflow-hidden rounded-full bg-gradient-to-br from-wood-700 to-wood-900 px-8 py-4 text-base font-medium text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                <button
+                  onClick={() => setIsModalOpen(true)}
+                  className="group relative overflow-hidden rounded-full bg-gradient-to-br from-wood-700 to-wood-900 px-8 py-4 text-base font-medium text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+                >
                   <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   <span className="relative flex items-center gap-2">
                     Get Free Sample
@@ -204,6 +209,13 @@ export function ProductShowcase({ product, index }: ProductShowcaseProps) {
           </motion.div>
         </div>
       </div>
+
+      {/* Sample Request Modal */}
+      <SampleRequestModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        productName={product.name}
+      />
     </section>
   );
 }

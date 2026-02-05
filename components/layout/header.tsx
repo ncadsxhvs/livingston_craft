@@ -71,14 +71,6 @@ export function Header() {
             ))}
           </div>
 
-          {/* CTA Buttons */}
-          <div className="hidden md:flex md:items-center md:gap-4">
-            <Button variant="outline" size="sm">
-              Get Samples
-            </Button>
-            <Button size="sm">Get Quote</Button>
-          </div>
-
           {/* Mobile menu button */}
           <button
             type="button"
@@ -115,14 +107,6 @@ export function Header() {
                   {item.name}
                 </a>
               ))}
-              <div className="mt-4 space-y-2">
-                <Button variant="outline" className="w-full" size="sm">
-                  Get Samples
-                </Button>
-                <Button className="w-full" size="sm">
-                  Get Quote
-                </Button>
-              </div>
             </div>
           </motion.div>
         )}

@@ -1,6 +1,10 @@
+"use client";
+
+import { useState } from "react";
 import { Facebook, Instagram, Twitter, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import { SubscribeModal } from "@/components/modals/subscribe-modal";
 
 const footerLinks = {
   products: [
@@ -31,6 +35,13 @@ const socialLinks = [
 ];
 
 export function Footer() {
+  const [isSubscribeModalOpen, setIsSubscribeModalOpen] = useState(false);
+
+  const handleSubscribeClick = (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubscribeModalOpen(true);
+  };
+
   return (
     <footer className="bg-stone-900 text-stone-200">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -47,11 +58,13 @@ export function Footer() {
             {/* Newsletter Signup */}
             <div className="mt-6">
               <h4 className="text-sm font-semibold text-white">Stay Updated</h4>
-              <form className="mt-2 flex gap-2">
+              <form className="mt-2 flex gap-2" onSubmit={handleSubscribeClick}>
                 <input
                   type="email"
                   placeholder="Enter your email"
                   className="flex-1 rounded-md bg-stone-800 px-4 py-2 text-sm text-white placeholder:text-stone-500 focus:outline-none focus:ring-2 focus:ring-primary"
+                  readOnly
+                  onClick={handleSubscribeClick}
                 />
                 <Button size="sm" type="submit">
                   Subscribe
@@ -175,6 +188,12 @@ export function Footer() {
           </div>
         </div>
       </div>
+
+      {/* Subscribe Modal */}
+      <SubscribeModal
+        isOpen={isSubscribeModalOpen}
+        onClose={() => setIsSubscribeModalOpen(false)}
+      />
     </footer>
   );
 }
