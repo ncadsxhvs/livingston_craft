@@ -166,9 +166,8 @@ export function Footer() {
             {/* Legal Links */}
             <div className="flex flex-wrap justify-center gap-4 text-sm text-stone-400">
               {footerLinks.legal.map((link, index) => (
-                <>
+                <div key={link.name} className="flex items-center gap-4">
                   <a
-                    key={link.name}
                     href={link.href}
                     className="transition-colors hover:text-white"
                   >
@@ -177,7 +176,7 @@ export function Footer() {
                   {index < footerLinks.legal.length - 1 && (
                     <span className="text-stone-700">|</span>
                   )}
-                </>
+                </div>
               ))}
             </div>
 
