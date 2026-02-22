@@ -7,6 +7,7 @@ import { useRef } from "react";
 import { Product } from "@/types/product";
 import { ColorSwatch } from "@/components/common/color-swatch";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { ProductSchema } from "@/components/seo/structured-data";
 
 // Lazy load modal (only loads when opened)
 const SampleRequestModal = dynamic(() => import("@/components/modals/sample-request-modal").then(mod => ({ default: mod.SampleRequestModal })), {
@@ -27,12 +28,19 @@ export function ProductShowcase({ product, index }: ProductShowcaseProps) {
   const activeColor = product.colors.find((c) => c.id === activeColorId) || product.colors[0];
   const isReverse = index % 2 !== 0;
 
+  const siteUrl = typeof window !== 'undefined'
+    ? window.location.origin
+    : process.env.NEXT_PUBLIC_SITE_URL || 'https://livingstoncraft.com';
+
   return (
     <section
       ref={ref}
       id={product.id}
       className="relative min-h-screen flex items-center py-24 overflow-hidden bg-white"
     >
+      {/* SEO: Product Structured Data */}
+      <ProductSchema product={product} siteUrl={siteUrl} />
+
       {/* Subtle background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-cream-50/40 via-transparent to-stone-50/40 pointer-events-none" />
 
