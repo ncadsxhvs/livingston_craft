@@ -1,10 +1,15 @@
 "use client";
 
 import { useState } from "react";
+import dynamic from "next/dynamic";
 import { Facebook, Instagram, Twitter, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import { SubscribeModal } from "@/components/modals/subscribe-modal";
+
+// Lazy load modal (only loads when opened)
+const SubscribeModal = dynamic(() => import("@/components/modals/subscribe-modal").then(mod => ({ default: mod.SubscribeModal })), {
+  ssr: false
+});
 
 const footerLinks = {
   products: [

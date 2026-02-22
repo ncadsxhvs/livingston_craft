@@ -1,15 +1,31 @@
 "use client";
 
 import { useState } from "react";
+import dynamic from "next/dynamic";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { PhotoGallery } from "@/components/sections/photo-gallery";
 import { ProductShowcase } from "@/components/sections/product-showcase";
-import { FeatureHighlights } from "@/components/sections/feature-highlights";
-import { ComparisonTable } from "@/components/sections/comparison-table";
-import { HowItWorks } from "@/components/sections/how-it-works";
-import { SampleRequestModal } from "@/components/modals/sample-request-modal";
+import { SectionLoading } from "@/components/common/section-loading";
 import { products } from "@/lib/data/products";
+
+// Lazy load below-fold sections (loaded when scrolled into view)
+const FeatureHighlights = dynamic(() => import("@/components/sections/feature-highlights").then(mod => ({ default: mod.FeatureHighlights })), {
+  loading: () => <SectionLoading />
+});
+
+const ComparisonTable = dynamic(() => import("@/components/sections/comparison-table").then(mod => ({ default: mod.ComparisonTable })), {
+  loading: () => <SectionLoading />
+});
+
+const HowItWorks = dynamic(() => import("@/components/sections/how-it-works").then(mod => ({ default: mod.HowItWorks })), {
+  loading: () => <SectionLoading />
+});
+
+// Lazy load modal (only loads when opened)
+const SampleRequestModal = dynamic(() => import("@/components/modals/sample-request-modal").then(mod => ({ default: mod.SampleRequestModal })), {
+  ssr: false
+});
 
 export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);

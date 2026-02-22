@@ -1,18 +1,23 @@
 "use client";
 
 import { useState } from "react";
+import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import Image from "next/image";
-import { SampleRequestModal } from "@/components/modals/sample-request-modal";
+
+// Lazy load modal (only loads when opened)
+const SampleRequestModal = dynamic(() => import("@/components/modals/sample-request-modal").then(mod => ({ default: mod.SampleRequestModal })), {
+  ssr: false
+});
 
 const images = [
   {
-    src: "/images/homepage/59295445-b3d1-4c62-a3a4-e8a491efca7f.jpg",
+    src: "/images/homepage/59295445-b3d1-4c62-a3a4-e8a491efca7f.webp",
     alt: "Premium flooring showcase",
   },
   {
-    src: "/images/homepage/grok-image-77a71355-66c7-45f0-ad8c-d7a432f11fa5.png",
+    src: "/images/homepage/grok-image-77a71355-66c7-45f0-ad8c-d7a432f11fa5.webp",
     alt: "Luxury interior design",
   },
 ];
@@ -76,6 +81,7 @@ export function PhotoGallery() {
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   priority={index === 0}
+                  quality={90}
                 />
                 {/* Gradient overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500" />

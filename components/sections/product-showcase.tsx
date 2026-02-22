@@ -1,12 +1,17 @@
 "use client";
 
 import { useState } from "react";
+import dynamic from "next/dynamic";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Product } from "@/types/product";
 import { ColorSwatch } from "@/components/common/color-swatch";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
-import { SampleRequestModal } from "@/components/modals/sample-request-modal";
+
+// Lazy load modal (only loads when opened)
+const SampleRequestModal = dynamic(() => import("@/components/modals/sample-request-modal").then(mod => ({ default: mod.SampleRequestModal })), {
+  ssr: false
+});
 
 interface ProductShowcaseProps {
   product: Product;
