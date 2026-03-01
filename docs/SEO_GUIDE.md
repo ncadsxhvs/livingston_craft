@@ -228,7 +228,7 @@ Product schema will automatically:
 
 ## 🎓 Advanced SEO (Future Improvements)
 
-### Not Yet Implemented (from TASKS.md)
+### Not Yet Implemented (from docs/TASKS.md)
 
 #### 1. Local SEO
 - [ ] Add LocalBusiness schema
