@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
 import { OrganizationSchema, WebsiteSchema } from "@/components/seo/structured-data";
 import "./globals.css";
@@ -84,6 +85,18 @@ export default function RootLayout({
         <WebsiteSchema siteUrl={siteUrl} />
       </head>
       <body className="antialiased">
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-HRQRWQ8WPL"
+          strategy="afterInteractive"
+        />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-HRQRWQ8WPL');
+          `}
+        </Script>
         {children}
         <Analytics />
       </body>
