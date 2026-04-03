@@ -17,6 +17,42 @@ Apple-inspired landing page for premium flooring products. Minimalist design, sm
 - **Animations:** Framer Motion
 - **Images:** Next/Image + Cloudinary
 - **Forms:** React Hook Form
+- **Database:** Supabase (hosted Postgres)
+- **ORM:** Drizzle ORM
+- **Auth:** Supabase Auth (admin login)
+
+---
+
+## Project Structure
+
+All source code lives under `src/` with path aliases:
+- `@/*` → `./src/*`
+- `@frontend/*` → `./src/frontend/*`
+- `@backend/*` → `./src/backend/*`
+- `@shared/*` → `./src/shared/*`
+
+```
+src/
+├── app/                    # Next.js App Router pages + API routes
+│   ├── (admin)/            # Admin route group (login + dashboard)
+│   └── api/                # API routes (vendors, shipments)
+├── backend/                # Server-only code
+│   ├── db/                 # Drizzle schema, connection, seed
+│   ├── lib/                # API utils, error classes
+│   ├── services/           # Business logic (vendor, shipment CRUD)
+│   └── supabase/           # Supabase client/server/middleware
+├── frontend/               # Landing page components + data
+│   ├── components/
+│   └── lib/
+└── shared/                 # Shared types + Zod validation schemas
+```
+
+## Backend Conventions
+- All API routes use `withAuth` from `@backend/lib/api-utils.ts` for admin auth
+- Zod schemas in `@shared/validation/` — validate request bodies before service calls
+- Services in `@backend/services/` — pure business logic using Drizzle ORM
+- Error handling via `AppError` subclasses (ValidationError, NotFoundError, UnauthorizedError)
+- DB commands: `npm run db:push`, `npm run db:seed`, `npm run db:generate`, `npm run db:migrate`
 
 ---
 
@@ -118,36 +154,46 @@ Gallery → Find inspiration → "Get This Look" → Product details → Request
 
 ## Development Checklist
 
-### Phase 1: Foundation (Week 1-2)
-- [ ] Next.js setup with Tailwind
-- [ ] Navigation component (sticky)
-- [ ] Hero section
-- [ ] Footer component
+### Phase 1: Foundation — DONE
+- [x] Next.js setup with Tailwind
+- [x] Navigation component (sticky)
+- [x] Hero section
+- [x] Footer component
 
-### Phase 2: Products (Week 3-4)
-- [ ] 4 product showcase sections
-- [ ] Color switcher functionality
-- [ ] Scroll animations
-- [ ] Image optimization
+### Phase 2: Products — DONE
+- [x] 4 product showcase sections
+- [x] Color switcher functionality
+- [x] Scroll animations
+- [x] Image optimization
 
-### Phase 3: Content (Week 5)
-- [ ] Feature highlights grid
-- [ ] Comparison table
-- [ ] How it works section
+### Phase 3: Content — DONE
+- [x] Feature highlights grid
+- [x] Comparison table
+- [x] How it works section
 
-### Phase 4: Interactive (Week 6)
-- [ ] Inspiration gallery with filters
-- [ ] Sample request form
-- [ ] Quote request form
-- [ ] Form validation
+### Phase 4: Interactive — DONE
+- [x] Inspiration gallery with filters
+- [x] Sample request form
+- [x] Quote request form
+- [x] Form validation
 
-### Phase 5: Polish (Week 7-8)
+### Phase 5: Polish — DONE
+- [x] SEO optimization
+- [x] Analytics setup (Google Analytics + Vercel Analytics)
 - [ ] Advanced animations
 - [ ] Performance optimization
 - [ ] Mobile refinement
 - [ ] Cross-browser testing
-- [ ] SEO optimization
-- [ ] Analytics setup
+
+### Phase 6: Backend — IN PROGRESS
+- [x] Supabase + Drizzle ORM setup
+- [x] Admin auth (login page + middleware)
+- [x] Admin dashboard (KPIs, vendor list, shipment list/detail)
+- [x] Logistics API (vendors + shipments CRUD)
+- [x] Seed script with real BOL data
+- [ ] Sales pipeline (leads, quotes, Kanban board)
+- [ ] Finance (invoices, expenses, reporting)
+- [ ] PDF upload to Supabase Storage
 
 ---
 
